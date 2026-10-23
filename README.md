@@ -33,7 +33,9 @@ flowchart LR
 
 ## 2. Quick start (no Docker needed)
 
-**Prerequisites:** Python 3.10+ and FFmpeg on your PATH.
+**Prerequisites:** Python 3.11 and FFmpeg on your PATH. Use Python 3.11 for the
+faster-whisper dependencies: Python 3.15 currently forces pip to build PyAV from
+source, which is not supported by this setup.
 
 | OS | Install FFmpeg |
 |---|---|
@@ -42,9 +44,9 @@ flowchart LR
 | Ubuntu/Debian | `sudo apt install ffmpeg` |
 
 ```bash
-# 1. create a virtual environment and install
-python -m venv .venv
-source .venv/bin/activate            # Windows PowerShell: .venv\Scripts\Activate.ps1
+# 1. create a Python 3.11 virtual environment and install
+python3.11 -m venv .venv311
+source .venv311/bin/activate          # Windows PowerShell: .venv311\Scripts\Activate.ps1
 pip install -r requirements.txt
 
 # 2. transcribe a file (first run downloads the model, ~140 MB for "base")
